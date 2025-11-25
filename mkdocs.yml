@@ -53,38 +53,25 @@ markdown_extensions:
 plugins:
   - search
   - blog:
-      name: blog1
       blog_dir: blog1
       post_dir: blog1/posts
-      post_template: null
       archive: false
       categories: true
-      feed:
-        enabled: true
   - blog:
-      name: blog2
       blog_dir: blog2
       post_dir: blog2/posts
       archive: false
       categories: true
-      feed:
-        enabled: true
   - blog:
-      name: blog3
       blog_dir: blog3
       post_dir: blog3/posts
       archive: false
       categories: true
-      feed:
-        enabled: true
   - blog:
-      name: blog4
       blog_dir: blog4
       post_dir: blog4/posts
       archive: false
       categories: true
-      feed:
-        enabled: true
 
 extra:
   social:
