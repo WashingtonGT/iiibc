@@ -1,0 +1,106 @@
+site_name: Insightful Intelligence Briefing Center
+site_description: Multi-blog knowledge hub powered by Material for MkDocs.
+site_url: https://example.github.io/iiibc
+repo_url: https://github.com/example/iiibc
+repo_name: example/iiibc
+
+nav:
+  - Home: index.md
+  - AI technology: blog1/index.md
+  - China US Relationship: blog2/index.md
+  - Macro Economics: blog3/index.md
+  - Leaders Digest: blog4/index.md
+  - About: about.md
+
+theme:
+  name: material
+  custom_dir: overrides
+  language: en
+  features:
+    - navigation.sections
+    - navigation.tabs
+    - navigation.expand
+    - toc.integrate
+    - content.code.copy
+    - navigation.top
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: amber
+    - scheme: slate
+      primary: indigo
+      accent: amber
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: Fira Code
+
+extra_css:
+  - assets/styles/home.css
+
+markdown_extensions:
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.blocks.tab
+  - toc:
+      permalink: true
+      toc_depth: 3
+
+plugins:
+  - search
+  - blog:
+      name: blog1
+      blog_dir: blog1
+      post_dir: blog1/posts
+      post_template: null
+      archive: false
+      categories: true
+      feed:
+        enabled: true
+  - blog:
+      name: blog2
+      blog_dir: blog2
+      post_dir: blog2/posts
+      archive: false
+      categories: true
+      feed:
+        enabled: true
+  - blog:
+      name: blog3
+      blog_dir: blog3
+      post_dir: blog3/posts
+      archive: false
+      categories: true
+      feed:
+        enabled: true
+  - blog:
+      name: blog4
+      blog_dir: blog4
+      post_dir: blog4/posts
+      archive: false
+      categories: true
+      feed:
+        enabled: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/example
+      name: GitHub
+  blog_sections:
+    - id: blog1
+      title: AI technology
+      tagline: Frontline trends in machine learning, tooling, and deployment.
+    - id: blog2
+      title: China US Relationship
+      tagline: Geopolitics and economic ties between the two nations.
+    - id: blog3
+      title: Macro Economics
+      tagline: Global macro signals and policy analysis.
+    - id: blog4
+      title: Leaders Digest
+      tagline: Executive-ready summaries across industries.

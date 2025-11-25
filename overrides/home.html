@@ -1,0 +1,53 @@
+{% extends "main.html" %}
+
+{% block content %}
+  {{ super() }}
+  <section class="home-hero">
+    <div class="md-grid">
+      <div class="home-hero__inner">
+        <p class="eyebrow">Intelligence Briefings</p>
+        <h1>Four specialized briefings, one source of truth</h1>
+        <p>Stay current on AI breakthroughs, cross-Pacific diplomacy, macro crosscurrents, and leadership tactics in minutes.</p>
+      </div>
+    </div>
+  </section>
+  <section class="home-latest md-typeset">
+    <div class="md-grid">
+      {% for section in config.extra.blog_sections %}
+        <div class="latest-section" id="latest-{{ section.id }}">
+          <div class="latest-section__header">
+            <div>
+              <p class="eyebrow">Latest in {{ section.title }}</p>
+              <h2>{{ section.tagline }}</h2>
+            </div>
+            <a class="md-button md-button--primary" href="/{{ section.id }}/">View {{ section.title }}</a>
+          </div>
+          {% set ns = namespace(items=[]) %}
+          {% for candidate in nav.pages %}
+            {% if candidate.file and candidate.file.src_uri and candidate.file.src_uri.startswith(section.id ~ "/posts/") %}
+              {% set ns.items = ns.items + [candidate] %}
+            {% endif %}
+          {% endfor %}
+          {% set latest = ns.items | sort(attribute='meta.date', reverse=True) %}
+          {% if latest %}
+            <div class="latest-cards">
+              {% for post in latest[:3] %}
+                <article class="latest-card">
+                  <p class="latest-card__date">{{ post.meta.date }}</p>
+                  <h3>
+                    <a href="{{ post.url }}">{{ post.meta.title or post.title }}</a>
+                  </h3>
+                  {% if post.meta.description %}
+                    <p>{{ post.meta.description }}</p>
+                  {% endif %}
+                </article>
+              {% endfor %}
+            </div>
+          {% else %}
+            <p>No posts yet. Add markdown files under <code>docs/{{ section.id }}/posts/</code>.</p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}
