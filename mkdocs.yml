@@ -78,21 +78,7 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/example
       name: GitHub
-  comments:
-    enabled: true
-    provider: giscus
-    giscus:
-      repo: WashingtonGT/iiibc
-      repo_id: R_kgDOQc0BlQ
-      category: General
-      category_id: DIC_kwDOQc0Blc4CzBxz
-      mapping: pathname
-      strict: 0
-      reactions_enabled: true
-      emit_metadata: false
-      input_position: bottom
-      lang: en
-      loading: lazy
+
   blog_sections:
     - id: blog1
       title: AI technology
